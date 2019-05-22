@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     amigos() {
-      return this.$store.getters.getAmigos
+      return this.$store.state.amigos
     }
   }
 }
