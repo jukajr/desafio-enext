@@ -17,6 +17,7 @@
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
     "vodal": "^2.4.0",
+    "vue-moment": "^4.0.0",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
