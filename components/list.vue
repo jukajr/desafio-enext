@@ -2,8 +2,7 @@
   <div>
     <dHeader icon="/img/list-ul-solid.svg" title="Lista de amigos" />
     <div class="list">
-      {{ amigos.length }}
-      <ul v-if="amigos.length">
+      <ul v-show="amigos.length">
         <li v-for="(amigo, index) in amigos" :key="index">
           <div class="img">
             <img :src="amigo.img" />
@@ -15,7 +14,7 @@
           </div>
         </li>
       </ul>
-      <p v-else class="not-register">Nenhum amigo cadastrado</p>
+      <p v-show="!amigos.length" class="not-register">Nenhum amigo cadastrado</p>
     </div>
   </div>
 </template>
@@ -35,7 +34,7 @@ export default {
   },
   computed: {
     amigos() {
-      return this.$store.state.amigos
+      return this.$store.getters.getAmigos
     }
   }
 }
