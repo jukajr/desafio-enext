@@ -2,6 +2,7 @@
   <div>
     <dHeader icon="/img/list-ul-solid.svg" title="Lista de amigos" />
     <div class="list">
+      {{ amigos.length }}
       <ul v-if="amigos.length">
         <li v-for="(amigo, index) in amigos" :key="index">
           <div class="img">
@@ -26,15 +27,15 @@ export default {
   components: {
     dHeader
   },
+  filters: {
+    capitalize(s) {
+      if (typeof s !== 'string' && s.length) return ''
+      return (s.charAt(0).toUpperCase() + s.slice(1)).replace('-', ' ')
+    }
+  },
   computed: {
     amigos() {
       return this.$store.getters.getAmigos
-    }
-  },
-  filters: {
-    capitalize(s) {
-      if (typeof s !== 'string') return ''
-      return (s.charAt(0).toUpperCase() + s.slice(1)).replace('-', ' ')
     }
   }
 }
